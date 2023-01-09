@@ -12,6 +12,7 @@ It assumes:
 4) If you want to modify, a knowledge of Perl is good (that being said - there is nothing stopping someone from converting this into a bash/PHP/etc script, and just using it as a guide!)
 5) You need to create a folder called /installer at the root level, and put all these files in it
 6) You need to be logged in as root
+7) The domain you are adding already has SSL enabled via LetsEncrypt 
 
 Ok so running it is pretty simple:
 
@@ -29,3 +30,7 @@ You should see some debug.
 6) Adds in the CNAME records for **autodiscover** and **autoconfig**
 7) Adds the 2 new subdomains as aliases via `v-add-web-domain-alias`
 8) Runs `v-add-web-domain-ssl-force` and then `v-schedule-letsencrypt-domain` to do the magic and update the SSL records 
+9) Restart nginx just to make sure the SSL certificates are updated
+
+Thats pretty much it! I'm sure there are improvements that can be made, but I wanted to put this out there so others can hopefully make use. I would love if it were possible to have a single .xml and .json file in one location and dynamically change the domain name (i.e the `<hostname>mail.DOMAINNAME.COM</hostname>` part), but I wouldn't figure out a way to do that.
+
