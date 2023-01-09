@@ -2,9 +2,9 @@
 
 I spent AGES trying to get autoconfig/autodiscover to work. It seems like they don't want to make it easy with different methods for each client, and no concensus on how things should work (for example, some people want DNS SRV records, others want autodiscover subdomains/files, others autoconfig... etc etc).
 
-Anyway for my own stuff I wanted a quick way to add autodiscover for my own servers and domains - this this script for setting up autoconfig/autodiscove email settings for mail servers
+Anyway for my own stuff I wanted a quick way to add autodiscover for my own servers and domains - thus this script for setting up autoconfig/autodiscove email settings for mail servers
 
-It assumes:
+# It assumes:
 
 1) Each domain needs to have mail. and webmail. subdomains for the domain, and SSL setup for the domain in question.
 2) You are on a Linode server (you can easily modify it for your own server, but a lot of the code is based on linode-cli)
