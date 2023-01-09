@@ -1,0 +1,21 @@
+{
+    "info": {
+      "name": "Your name",
+      "url": "mail.YOURDOMAIN.COM",
+      "domain": "YOURDOMAIN.COM"
+    },
+    "server": {
+      "imap": {
+        "host": "mail.YOURDOMAIN.COM",
+        "port": 993,
+        "socket": "SSL"
+      },
+      "smtp": {
+        "host": "mail.YOURDOMAIN.COM",
+        "port": 465,
+        "socket": "SSL"
+      },
+      "domain_required": true
+    },
+    "ttl": 168
+  }
