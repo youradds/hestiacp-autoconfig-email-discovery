@@ -8,11 +8,11 @@ Anyway for my own stuff I wanted a quick way to add autodiscover for my own serv
 
 1) Each domain needs to have mail. and webmail. subdomains for the domain, and SSL setup for the domain in question.
 2) You are on a Linode server (you can easily modify it for your own server, but a lot of the code is based on linode-cli)
-3) You have linode-cli installed (https://www.linode.com/docs/products/tools/cli/guides/install/). Be sure to run linode-cli and configure the API credentials (otherwise it'll just hang, and do nothing!)
-4) If you want to modify, a knowledge of Perl is good (that being said - there is nothing stopping someone from converting this into a bash/PHP/etc script, and just using it as a guide!)
-5) You need to create a folder called /installer at the root level, and put all these files in it
-6) You need to be logged in as root
-7) The domain you are adding already has SSL enabled via LetsEncrypt 
+3) You have linode-cli installed (https://www.linode.com/docs/products/tools/cli/guides/install/), **or** are running your own DNS server (with Bind) on the server. If using Bind, be sure to update the .cgi script and set my `$dns_type = "local";`. If using Linode's DNS, then be sure to run `linode-cli` and configure the API credentials (otherwise it'll just hang, and do nothing!)
+6) If you want to modify, a knowledge of Perl is good (that being said - there is nothing stopping someone from converting this into a bash/PHP/etc script, and just using it as a guide!)
+7) You need to create a folder called /installer at the root level, and put all these files in it
+8) You need to be logged in as root
+9) The domain you are adding already has SSL enabled via LetsEncrypt 
 
 Ok so running it is pretty simple:
 
