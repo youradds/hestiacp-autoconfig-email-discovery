@@ -1,7 +1,5 @@
 #!/usr/bin/perl
 
-# v 1.2
-
 use Data::Dumper;
 use JSON;
 
@@ -83,7 +81,6 @@ sub handle {
 				#`echo "rewrite ^/autodiscover/autodiscover\.xml\$ /autodiscover/autodiscover.php last;" > /home/$username/conf/web/autodiscover.$domain/rules.conf`;
 
 				# !!!! I got rid of this, as it seems to cause move problems than its worth!
-				# I got rid of this, as it seems to cause move problems than its worth!
 				# add DNS records for autodiscover... hopefully these work!
 				#if (`linode-cli domains records-list $domain_rec->{id}` =~ /_pop3/) {
 					#print qq|Already seems to have DNS records... don't add again!\n|;
