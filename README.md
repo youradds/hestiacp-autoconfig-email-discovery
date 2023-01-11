@@ -34,3 +34,24 @@ You should see some debug.
 
 Thats pretty much it! I'm sure there are improvements that can be made, but I wanted to put this out there so others can hopefully make use. I would love if it were possible to have a single .xml and .json file in one location and dynamically change the domain name (i.e the `<hostname>mail.DOMAINNAME.COM</hostname>` part), but I wouldn't figure out a way to do that.
 
+# Script versions
+
+There are 2 scripts - `add-autodiscover.cgi` and `add-autodiscover-all.cgi`. 
+
+## add-autodiscover.cgi
+
+This script is for when you want to just enable autodiscover on a single domain. Invoke it as `root` with:
+
+`perl /installer/add-autodiscover.cgi domain.com username`
+
+## add-autodiscover-all.cgi
+
+This is aimed so you can add all the current accounts with mail domains setup (and at least one email address). It will loop through all of the users, look at their domains; find any that have emails configured, and then assuming it hasn't already been processed it will setup the auto-discover. Call with:
+
+`perl /installer/add-autodiscover-all.cgi`
+
+I personally have set this up on a cronjob as `root` (you could do it as `admin`, but be aware you would need to make sure the /installer/ files inside are all owned by `admin`, otherwise you will get permission denied errors)
+
+I'd recommend also putting the output into a log file:
+
+`@daily perl /installer/add-autodiscover-all.cgi /var/log/hestia/autoconfigure.log`
