@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# v1.4
+# v1.3
 
 use Data::Dumper;
 use JSON;
@@ -125,6 +125,8 @@ sub handle {
 			`v-add-dns-record $username $domain autoconfig CNAME $domain`;
 
 		}
+
+		`touch /installer/discover-configs-done/$domain`;
 
 		# restart nginx, so the rules take effect :)
 		`v-restart-service  'nginx' ''`;
