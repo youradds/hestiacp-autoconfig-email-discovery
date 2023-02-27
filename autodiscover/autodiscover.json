@@ -12,7 +12,7 @@
       },
       "smtp": {
         "host": "mail.YOURDOMAIN.COM",
-        "port": 465,
+        "port": 587,
         "socket": "SSL"
       },
       "domain_required": true
