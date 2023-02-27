@@ -1,19 +1,24 @@
 #!/usr/bin/perl
 
-	use Data::Dumper;
-	use JSON;
+use Data::Dumper;
+use JSON;
 
+my $dns_type = "linode"; # either "linode" or "local". If local, this means you are using Hestia's local DNS server, so the CNAMES will be added to that instead
+my $HESTIA_PATH = '/usr/local/hestia/bin/';
 
-	my $dns_type = "linode"; # either "linode" or "local". If local, this means you are using Hestia's local DNS server, so the CNAMES will be added to that instead
-	my $HESTIA_PATH = '/usr/local/hestia/bin/';
+# we use this to store which domains have had the autodiscover setup done, so we don't do it again and waste time
+if (!-d "/installer/discover-configs-done") {
+	mkdir ("/installer/discover-configs-done");
+}
 
-	# we use this to store which domains have had the autodiscover setup done, so we don't do it again and waste time
-	if (!-d "/installer/discover-configs-done") {
-		mkdir ("/installer/discover-configs-done");
-	}
+# check we are in the right folder (otherwise the copy of files won't work)
+if ($0 ne "/installer/add-autodiscover-all.cgi") {
+	print "Please run this from the /installer directory!\n";
+	exit;
+}
 
-	my @server_ips;
-	handle();
+my @server_ips;
+handle();
 
 sub handle {
 
