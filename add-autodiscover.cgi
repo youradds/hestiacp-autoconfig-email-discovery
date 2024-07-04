@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# v1.4
+# v1.4.1
 
 use Data::Dumper;
 use JSON;
@@ -136,9 +136,7 @@ sub handle {
 
 		# restart nginx, so the rules take effect :)
 		`v-restart-service  'nginx' ''`;
-	
-	} else {
-		print qq|Domain $domain already has autodiscover setup...\n|;
+
 	}
 
 	# now we should be done!!!
